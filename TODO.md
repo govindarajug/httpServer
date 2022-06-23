@@ -1,6 +1,9 @@
 # TODO
 
 - [ ] parse the request
+  - [x] parse the request line
+  - [ ] parse the headers
+- [ ] implement parser to parse request in server
 - [ ] respond according to request
 
 # DONE
