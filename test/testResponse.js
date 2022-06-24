@@ -10,10 +10,10 @@ const mockSocket = () => ({
 
 describe('Response', () => {
   it('Should write response on the socket', () => {
-    const expected = 'hello';
+    const expected = 'HTTP/1.1 200 OK\r\n\r\nhello\r\n';
     const mockedSocket = mockSocket();
     const response = new Response(mockedSocket);
-    response.write('hello');
+    response.send('hello', 200);
     assert.strictEqual(mockedSocket.message, expected);
   });
 });

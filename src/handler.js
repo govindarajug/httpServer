@@ -1,12 +1,9 @@
-const response = (data, statusCode) =>
-  `HTTP/1.1 ${statusCode} OK\r\n\r\n${data}\r\n`;
-
-const handler = ({ uri }, socket) => {
+const handler = ({ uri }, response) => {
   if (uri === '/') {
-    socket.write(response('HELLO', 200));
+    response.send('HELLO', 200);
     return;
   }
-  socket.write(response('UNKNOWN', 404));
+  response.send('UNKNOWN', 404);
 };
 
-module.exports = { handler, response };
+module.exports = { handler };
