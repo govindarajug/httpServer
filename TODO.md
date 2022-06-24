@@ -1,10 +1,11 @@
 # TODO
 
-- [ ] take path from command line
 - [ ] choose handler to serve
+- [ ] make a dynamic handler
 
 # DONE
 
+- [x] take path from command line
 - [x] serve a image on request
 - [x] write a handler that serves files
 - [x] pass response instead of socket to handler

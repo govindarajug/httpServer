@@ -1,7 +1,7 @@
 const fs = require('fs');
 
-const serveFileContent = ({ uri }, response) => {
-  const fileName = 'public' + uri;
+const serveFileContent = ({ uri }, response, serveFrom) => {
+  const fileName = serveFrom + uri;
   if (!fs.existsSync(fileName)) {
     response.send('FILE NOT FOUND', 404);
     return;
