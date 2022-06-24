@@ -1,5 +1,6 @@
 const { createServer } = require('net');
 const { handler } = require('./src/handler.js');
+const { serveFileContent } = require('./src/serveFileContent.js');
 const { parseRequest } = require('./src/parseRequest.js');
 const { Response } = require('./src/response.js');
 
@@ -8,7 +9,7 @@ const server = createServer((socket) => {
   socket.on('data', (data) => {
     const request = parseRequest(data);
     const response = new Response(socket);
-    handler(request, response);
+    serveFileContent(request, response);
     socket.end();
   });
 });

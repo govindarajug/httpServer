@@ -5,7 +5,8 @@ const mockSocket = () => ({
   message: '',
   write: function (text) {
     this.message += text;
-  }
+  },
+  end: () => { }
 });
 
 describe('Response', () => {

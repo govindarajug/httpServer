@@ -1,11 +1,12 @@
 # TODO
 
-- [ ] write a handler that serves files
-- [ ] serve a image on request
+- [ ] take path from command line
 - [ ] choose handler to serve
 
 # DONE
 
+- [x] serve a image on request
+- [x] write a handler that serves files
 - [x] pass response instead of socket to handler
 - [x] make a response class as wrap of socket
 - [x] respond according to request

@@ -4,8 +4,12 @@ class Response {
     this.#socket = socket;
   }
 
-  send(message, statusCode) {
-    this.#write(`HTTP/1.1 ${statusCode} OK\r\n\r\n${message}\r\n`);
+  send(body, statusCode) {
+    this.#write(`HTTP/1.1 ${statusCode} OK`);
+    this.#write('\r\n\r\n');
+    this.#write(body);
+    this.#write('\r\n');
+    this.#socket.end();
   }
 
   #write(data) {
