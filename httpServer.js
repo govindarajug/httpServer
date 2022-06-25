@@ -4,9 +4,15 @@ const { serveFileContent } = require('./src/serveFileContent.js');
 const { parseRequest } = require('./src/parseRequest.js');
 const { Response } = require('./src/response.js');
 const { pageNotFoundHandler } = require('./src/pageNotFound.js');
+const { dynamicHandler } = require('./src/dynamicHandler.js');
 
 const handle = (request, response, serveFrom) => {
-  const handlers = [textHandler, serveFileContent, pageNotFoundHandler];
+  const handlers = [
+    dynamicHandler,
+    textHandler,
+    serveFileContent,
+    pageNotFoundHandler
+  ];
   for (const handler of handlers) {
     if (handler(request, response, serveFrom)) {
       return true;
