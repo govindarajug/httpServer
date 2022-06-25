@@ -1,10 +1,11 @@
 # TODO
 
-- [ ] choose handler to serve
 - [ ] make a dynamic handler
+- [ ] load file content before starting server
 
 # DONE
 
+- [x] choose handler to serve
 - [x] take path from command line
 - [x] serve a image on request
 - [x] write a handler that serves files

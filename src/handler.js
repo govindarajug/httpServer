@@ -1,9 +1,10 @@
-const handler = ({ uri }, response) => {
+const textHandler = ({ uri }, response) => {
   if (uri === '/') {
+    response.setHeader('content-type', 'text/plain');
     response.send('HELLO', 200);
-    return;
+    return true;
   }
-  response.send('UNKNOWN', 404);
+  return false;
 };
 
-module.exports = { handler };
+module.exports = { textHandler };

@@ -1,14 +1,28 @@
+const CRLF = '\r\n';
+
 class Response {
   #socket;
+  #headers;
   constructor(socket) {
     this.#socket = socket;
+    this.#headers = {};
+  }
+
+  setHeader(head, value) {
+    this.#headers[head] = value;
+  }
+
+  #writeHeaders() {
+    Object.entries(this.#headers).forEach(
+      ([head, value]) => this.#write(`${head}:${value}${CRLF}`));
   }
 
   send(body, statusCode) {
-    this.#write(`HTTP/1.1 ${statusCode} OK`);
-    this.#write('\r\n\r\n');
+    this.#write(`HTTP / 1.1 ${statusCode} OK`);
+    this.#write(CRLF);
+    this.#writeHeaders();
+    this.#write(CRLF);
     this.#write(body);
-    this.#write('\r\n');
     this.#socket.end();
   }
 
@@ -17,4 +31,4 @@ class Response {
   }
 }
 
-module.exports = { Response };
+module.exports = { Response };;
