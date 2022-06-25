@@ -1,10 +1,11 @@
 # TODO
 
-- [ ] redirection on some request
+- [ ] parse query parameters and respond 
 - [ ] load file content before starting server
 
 # DONE
 
+- [x] redirection on some request
 - [x] make a dynamic handler
 - [x] choose handler to serve
 - [x] take path from command line

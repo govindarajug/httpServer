@@ -18,7 +18,7 @@ class Response {
   }
 
   send(body, statusCode) {
-    this.#write(`HTTP / 1.1 ${statusCode} OK`);
+    this.#write(`HTTP/1.1 ${statusCode} OK`);
     this.#write(CRLF);
     this.#writeHeaders();
     this.#write(CRLF);

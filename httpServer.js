@@ -28,7 +28,6 @@ const startServer = (port, handle, serveFrom = 'public') => {
       console.log(request.method, request.uri);
       const response = new Response(socket);
       handle(request, response, serveFrom);
-      socket.end();
     });
     socket.on('error', (err) => {
       console.log(err);
