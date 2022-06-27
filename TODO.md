@@ -1,10 +1,11 @@
 # TODO
 
-- [ ] use form to take query parameters
 - [ ] load file content before starting server
 
 # DONE
 
+- [x] ~~make a convertor handler~~
+- [x] use form to take query parameters
 - [x] parse query parameters and respond 
   - [x] parse single parameter
   - [x] parse two or more parameters

@@ -24,7 +24,8 @@ const serveFileContent = (request, response, serveFrom) => {
     return serveErrorImage(request, response);
   }
   const body = fs.readFileSync(fileName);
-  response.setHeader('content-type', 'text/plain');
+  const ext = fileName.slice(fileName.lastIndexOf('.') + 1);
+  response.setHeader('content-type', `text/${ext}`);
   response.send(body, 200);
   return true;
 };
