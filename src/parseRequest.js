@@ -21,12 +21,20 @@ const parseHeaders = (lines) => {
   return headers;
 };
 
+const parseQueryArgs = (parameters) => {
+  const args = {};
+  parameters.split('&').forEach(arg => {
+    const [parameter, value] = arg.split('=');
+    args[parameter] = value;
+  });
+  return args;
+};
+
 const parseParamString = (paramString) => {
-  const params = {};
+  let params = {};
   const [uri, parameters] = paramString.split('?');
   if (parameters) {
-    const [parameter, value] = parameters.split('=');
-    params[parameter] = value;
+    params = { ...params, ...parseQueryArgs(parameters) };
   }
   params.uri = uri;
   return params;

@@ -1,12 +1,13 @@
 # TODO
 
-- [ ] parse query parameters and respond 
-  - [x] parse single parameter
-  - [ ] parse two or more parameters
+- [ ] use form to take query parameters
 - [ ] load file content before starting server
 
 # DONE
 
+- [x] parse query parameters and respond 
+  - [x] parse single parameter
+  - [x] parse two or more parameters
 - [x] redirection on some request
 - [x] make a dynamic handler
 - [x] choose handler to serve
