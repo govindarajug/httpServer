@@ -15,6 +15,11 @@ const serveFileContent = (request, response, serveFrom) => {
     response.send('', 302);
     return true;
   }
+  if (uri === '/') {
+    response.setHeader('location', '/home');
+    response.send('', 302);
+    return true;
+  }
   if (!fs.existsSync(fileName)) {
     return serveErrorImage(request, response);
   }

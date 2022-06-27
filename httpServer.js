@@ -8,8 +8,8 @@ const { dynamicHandler } = require('./src/dynamicHandler.js');
 
 const handle = (request, response, serveFrom) => {
   const handlers = [
-    dynamicHandler,
     textHandler,
+    dynamicHandler,
     serveFileContent,
     pageNotFoundHandler
   ];

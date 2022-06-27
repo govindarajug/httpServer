@@ -1,6 +1,8 @@
 # TODO
 
 - [ ] parse query parameters and respond 
+  - [x] parse single parameter
+  - [ ] parse two or more parameters
 - [ ] load file content before starting server
 
 # DONE

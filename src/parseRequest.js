@@ -1,6 +1,6 @@
 const parseRequestLine = (requestLine) => {
-  const [method, uri, httpVersion] = requestLine.split(' ');
-  return { method, uri, httpVersion };
+  const [method, paramString, httpVersion] = requestLine.split(' ');
+  return { method, paramString, httpVersion };
 };
 
 const parseHeader = (line) => {
@@ -21,11 +21,23 @@ const parseHeaders = (lines) => {
   return headers;
 };
 
+const parseParamString = (paramString) => {
+  const params = {};
+  const [uri, parameters] = paramString.split('?');
+  if (parameters) {
+    const [parameter, value] = parameters.split('=');
+    params[parameter] = value;
+  }
+  params.uri = uri;
+  return params;
+};
+
 const parseRequest = (chunk) => {
   const lines = chunk.split('\r\n');
-  const { method, uri, httpVersion } = parseRequestLine(lines[0]);
+  const { method, paramString, httpVersion } = parseRequestLine(lines[0]);
+  const paramArgs = parseParamString(paramString);
   const headers = parseHeaders(lines.slice(1));
-  return { method, uri, httpVersion, headers };
+  return { method, ...paramArgs, httpVersion, headers };
 };
 
 module.exports = { parseRequest, parseRequestLine, parseHeaders, parseHeader };
